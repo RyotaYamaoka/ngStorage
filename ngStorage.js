@@ -165,6 +165,14 @@
 
                             return $storage.$default(items);
                         },
+                        $exist: function (key) {
+                            for (var i = 0, l = webStorage.length, k; i < l; i++) {
+															if(webStorage.key(i) == storageKeyPrefix + key){
+																return true;
+															}
+                            }
+														return false;
+                        },
                         $sync: function () {
                             for (var i = 0, l = webStorage.length, k; i < l; i++) {
                                 // #8, #10: `webStorage.key(i)` may be an empty string (or throw an exception in IE9 if `webStorage` is empty)
